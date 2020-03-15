@@ -1,0 +1,70 @@
+
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+void dfs2(int **edges,int v,int*visited,int sv)
+{
+    visited[sv]=1;
+    for(int i=0;i<v;i++)
+    {
+        if(edges[sv][i]==1&&visited[i]==0)
+        {
+            dfs2(edges,v,visited,i);
+        }
+    }
+}
+int dfs(int **edges,int v)
+{
+    int *visited=new int[v];
+    for(int i=0;i<v;i++)
+    {
+        visited[i]=0;
+    }
+    //Map made to just check which all have been printed the previous time and marked them as one.
+    map<int,int>mymap;
+   for(int i=0;i<v;i++)
+    {
+        if(visited[i]==0)
+        {
+            dfs2(edges,v,visited,i);
+            vector<int>ve;
+            for(int i=0;i<v;i++)
+            {
+                if(visited[i]==1 && mymap[i]==0)
+                {
+                     mymap[i]=1;
+                     ve.push_back(i);
+                }
+            }
+            for(int i=0;i<ve.size();i++)
+            {
+                cout<<ve[i]<<" ";
+            }
+            cout<<endl;
+            ve.clear();
+        }
+    }
+}
+int main()
+{
+  int v,e;
+  cin >> v >> e;
+    int **edges=new int*[v];
+    for(int i=0;i<v;i++)
+    {
+        edges[i]=new int[v];
+        for(int j=0;j<v;j++)
+        {
+            edges[i][j]=0;
+        }
+    }
+    int sv,ev;
+    for(int i=0;i<e;i++)
+    {
+        cin>>sv>>ev;
+        edges[sv][ev]=1;
+        edges[ev][sv]=1;
+    }
+    dfs(edges,v);
+  return 0;
+}
