@@ -29,7 +29,12 @@ void bfs(int **edges,int n,int sv,int *visited)
 
 
 void dfs(int **edges,int n,int sv,int *visited)
-{   
+{
+   //Base case
+   if(visited[sv]==1)
+   {
+      return;
+   }
     cout<<sv<<endl;
     visited[sv]=1;
     for(int i=0;i<n;i++)
