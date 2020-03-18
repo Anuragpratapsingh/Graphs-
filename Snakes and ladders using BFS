@@ -2,7 +2,7 @@
 //For ladders taken +ve and snakes -ve. edge is between u to v and from u we are throwing the dice.
 //Directed unweighted graph as snake aur ladder toh ek hi direction mei hain.
 int board[50] = {0};
-    board[2] = 13;
+    board[2] = 13//(Basically reaching on 15 from 2);
     board[5] = 2;
     board[9] = 18;
     board[18] = 11;
