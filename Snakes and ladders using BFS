@@ -1,0 +1,30 @@
+//Logic is make a board array to take care of the snakes and ladders.and then just simple BFS
+//For ladders taken +ve and snakes -ve. edge is between u to v and from u we are throwing the dice.
+//Directed unweighted graph as snake aur ladder toh ek hi direction mei hain.
+int board[50] = {0};
+    board[2] = 13;
+    board[5] = 2;
+    board[9] = 18;
+    board[18] = 11;
+    board[17] = -13;
+    board[20] = -14;
+    board[24] = -8;
+    board[25] = -10;
+    board[32] = -2;
+    board[34] = -22;
+	Graph g(50);
+
+	//Insert edges
+	for(int u=0;u<36;u++){
+		//Throw a dice from 1 to 6 from u
+		for(int dice=1;dice<=6;dice++){
+    //v is u(jahaa khade hain)+dice ki value+board[u+dice] as u+dice is the value jahaa pahuchenge and we'll see wahaa snake hai ya ladder.
+    	int v = u + dice + board[u+dice];
+			g.addEdge(u,v,false);
+		}
+    //Shortest path
+	g.bfs(0,36);
+	}
+  //Full code see on coding blocks 
+  //https://ide.codingblocks.com/s/995
+  //995
