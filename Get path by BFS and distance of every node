@@ -1,7 +1,8 @@
-//sHORTES DISTANCE AND GET PATH BY BFS
+//sHORTESt DISTANCE AND GET PATH BY BFS
 #include <iostream>
 #include<bits/stdc++.h>
 using namespace std;
+//V1 is taken as the source or parent here
 void bfs(int **edges,int n,int v1,int v2)
 {
     //Here starting vertex taken as v1    
