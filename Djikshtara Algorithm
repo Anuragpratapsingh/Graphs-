@@ -35,7 +35,7 @@ void Djikshtara(int **edges,int n)
       //Exploring its neighbours which are unvisited
        for(int i=0;i<n;i++)
       {
-          if(edges[index][i]!=-1&&visited[i]==0)
+          if(edges[index][i]!=0&&visited[i]==0)
           {
               if(distance[index]+edges[index][i]<distance[i])
               {
@@ -61,7 +61,8 @@ for(int i=0;i<n;i++)
         edges[i]=new int[n];
         for(int j=0;j<n;j++)
         {
-            edges[i][j]=-1;
+        //This is because 0 to 0 answer is 0
+            edges[i][j]=0;
         }
 }
 for(int i=0;i<e;i++)
